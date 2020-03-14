@@ -1,40 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import Person from './Person/Person';
 import './App.css';
 
-class App extends Component {
-  state = {
+// functional component using hooks
+const App = props => {
+  const [ personsState, setPersonsState ] = useState({
     persons: [
       {name: 'Max', age: 28},
       {name: 'Manu', age: 27},
       {name: 'Steph', age: 27}
-    ]
-  }
+    ],
+    otherState: 'some other variable'
+  });
 
-  switchNameHandler = () => {
+  const switchNameHandler = () => {
     // console.log('Was Clicked!');
     // Don't do this: this.state.persons[0].name = "Maximilian";
-    this.setState({ persons: [
+    setPersonsState({ persons: [
       {name: 'Max', age: 29},
       {name: 'Manu', age: 28},
       {name: 'Steph', age: 28}
     ]
-    })
+    });
   };
 
-  render(){
-    return (
-      <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!!!</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies: Surfing</Person>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-      </div>
-    )
-  };
+  return (
+    <div className="App">
+      <h1>Hi, I'm a React App</h1>
+      <p>This is really working!!!</p>
+      <button onClick={switchNameHandler}>Switch Name</button>
+      <Person name={personsState.persons[0].name} age={personsState.persons[0].age}>My Hobbies: Surfing</Person>
+      <Person name={personsState.persons[1].name} age={personsState.persons[1].age}/>
+      <Person name={personsState.persons[2].name} age={personsState.persons[2].age}/>
+    </div>
+  )
 }
 
 export default App;
