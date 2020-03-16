@@ -1,4 +1,5 @@
 import React from 'react';
+import Aux from '../../../HOC/Aux';
 import styled from 'styled-components';
 // import './Person.css';
 
@@ -18,11 +19,13 @@ const StyledDiv = styled.div`
 
 const person = (props) => {
   return (
-    <StyledDiv>
-      <p onClick={props.click}>I'm {props.name} and {props.age}!</p>
-      <p>{props.children}</p>
-      <input type='text' onChange={props.changed} value={props.name}/>
-    </StyledDiv>
+    <Aux>
+      <StyledDiv>
+        <p onClick={props.click}>I'm {props.name} and {props.age}!</p>
+        <p>{props.children}</p>
+        <input type='text' onChange={props.changed} value={props.name}/>
+      </StyledDiv>
+    </Aux>
   )
 }
 

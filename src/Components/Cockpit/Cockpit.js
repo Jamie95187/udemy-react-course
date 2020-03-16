@@ -35,4 +35,5 @@ const cockpit = (props) => {
   );
 };
 
+// React memo good to use if the component doesnt need to change when the parent component changes
 export default cockpit;
