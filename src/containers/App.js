@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Person from '../Components/Persons/Person/Person';
 import Persons from '../Components/Persons/Persons';
 import Cockpit from '../Components/Cockpit/Cockpit';
+import WithClass from '../HOC/WithClass';
 import './App.css';
 
 // Smart, stateful components
@@ -90,13 +91,13 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <WithClass classes="App">
         <Cockpit
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonsHandler} />
         {persons}
-      </div>
+      </WithClass>
     )
   };
 }
